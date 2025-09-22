@@ -545,6 +545,7 @@
                 ]
             };
             
+            // --- START: SOUND ENGINE --- (FIXED POSITION)
             const sfx = {
                 click: new Audio('https://taira-komori.net/sound_os2/game01/button02b.mp3'),
                 denied: new Audio('https://taira-komori.net/sound_os2/game01/button04b.mp3'),
@@ -561,6 +562,7 @@
                     sound.play().catch(e => {});
                 }
             };
+            // --- END: SOUND ENGINE ---
 
             const mainContainer = document.getElementById('mainContainer');
             const navMenu = document.getElementById('navMenu');
@@ -701,9 +703,9 @@
                 const btnYes = document.getElementById('btnYes');
                 const btnNo = document.getElementById('btnNo');
                 
-                const initialize = (playSound) => {
+                const initialize = (playSoundEnabled) => {
                     document.body.style.overflow = "visible";
-                    isSoundOn = playSound;
+                    isSoundOn = playSoundEnabled;
                     modal.style.opacity = '0';
                     modal.style.pointerEvents = 'none';
                     if (isSoundOn) { sfx.bgm.volume = 0.1; sfx.bgm.play().catch(e => {}); soundControl.textContent = 'SOUND: ON'; soundControl.classList.remove('muted'); document.getElementById('favicon').setAttribute('href', "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👁️</text></svg>");
@@ -769,16 +771,6 @@
                 }, { threshold: 0.15 });
                 document.querySelectorAll('.content-section').forEach(el => observer.observe(el));
             };
-            
-            // This is the main audio context. We're using the recommended sound pack.
-            const sfx = {
-                click: new Audio('https://taira-komori.net/sound_os2/game01/button02b.mp3'),
-                denied: new Audio('https://taira-komori.net/sound_os2/game01/button04b.mp3'),
-                hover: new Audio('https://taira-komori.net/sound_os2/game01/select01.mp3'),
-                bgm: new Audio('https://taira-komori.net/sound_os2/horror01/white_noise1.mp3'),
-                menuToggle: new Audio('https://taira-komori.net/sound_os2/openclose01/iron_door1_O.mp3')
-            };
-            sfx.bgm.loop = true;
 
             initApp();
         });
