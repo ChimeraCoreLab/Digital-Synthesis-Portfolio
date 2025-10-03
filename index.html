@@ -380,7 +380,7 @@
                 purpose: `
                     <div class="sop-paragraph">
                         <span class="sop-heading">// DIRECTIVE_01: ORIGIN_QUERY</span>
-                        <p>ความหลงใหلในวิศวกรรมคอมพิวเตอร์ของกระผมเริ่มต้นจากจุดเชื่อมต่อระหว่างโลกดิจิทัลและโลกกายภาพ—จากคำถามที่ว่า เราจะเปลี่ยน <span class="keyword concept">"ความคิด"</span> ที่เป็นนามธรรมในโค้ด ให้กลายเป็นการกระทำที่จับต้องได้ของ <span class="keyword concept">"ระบบฮาร์ดแวร์"</span> ได้อย่างไร? คำถามนี้ผลักดันให้กระผมศึกษา <span class="keyword tech">Python</span> เพื่อสร้างอัลกอริทึม, สำรวจ <span class="keyword tech">Godot Engine</span> เพื่อทำความเข้าใจการจัดการทรัพยากรในระบบ Real-time, และเจาะลึกการทำงานของ <span class="keyword tech">Large Language Models (LLMs)</span> เพื่อวิเคราะห์ <span class="keyword concept">สถาปัตยกรรมของปัญญาประดิษฐ์</span></p>
+                        <p>ความหลงใหลในวิศวกรรมคอมพิวเตอร์ของกระผมเริ่มต้นจากจุดเชื่อมต่อระหว่างโลกดิจิทัลและโลกกายภาพ—จากคำถามที่ว่า เราจะเปลี่ยน <span class="keyword concept">"ความคิด"</span> ที่เป็นนามธรรมในโค้ด ให้กลายเป็นการกระทำที่จับต้องได้ของ <span class="keyword concept">"ระบบฮาร์ดแวร์"</span> ได้อย่างไร? คำถามนี้ผลักดันให้กระผมศึกษา <span class="keyword tech">Python</span> เพื่อสร้างอัลกอริทึม, สำรวจ <span class="keyword tech">Godot Engine</span> เพื่อทำความเข้าใจการจัดการทรัพยากรในระบบ Real-time, และเจาะลึกการทำงานของ <span class="keyword tech">Large Language Models (LLMs)</span> เพื่อวิเคราะห์ <span class="keyword concept">สถาปัตยกรรมของปัญญาประดิษฐ์</span></p>
                     </div>
                     <div class="sop-paragraph">
                         <span class="sop-heading">// DIRECTIVE_02: PROOF_OF_CONCEPT</span>
@@ -458,7 +458,8 @@
                 click: new Audio('https://taira-komori.net/sound_os2/game01/button02b.mp3'),
                 denied: new Audio('https://taira-komori.net/sound_os2/game01/button04b.mp3'),
                 hover: new Audio('https://taira-komori.net/sound_os2/openclose01/wooden_drawer_O.mp3'),
-                bgm: new Audio('https://taira-komori.net/sound_os2/nature01/storm_coming_l.mp3')
+                bgm: new Audio('https://taira-komori.net/sound_os2/nature01/storm_coming_l.mp3'),
+                switch: new Audio('https://taira-komori.net/sound_os2/electric01/switch1.mp3')
             };
             sfx.bgm.loop = true;
 
@@ -650,9 +651,23 @@
                     link.addEventListener('mouseenter', () => playSound(sfx.hover));
                     link.addEventListener('click', (e) => { 
                         e.preventDefault();
-                        const targetElement = document.querySelector(link.getAttribute('href'));
-                        if (targetElement) { targetElement.scrollIntoView({ behavior: 'smooth' }); }
-                        hamburger.classList.remove('active'); navMenu.classList.remove('active'); playSound(sfx.click); 
+                        
+                        const targetId = link.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) { 
+                            targetElement.scrollIntoView({ behavior: 'smooth' }); 
+                        }
+                        
+                        hamburger.classList.remove('active'); 
+                        navMenu.classList.remove('active'); 
+                        
+                        const specialSoundSections = ['#section-projects', '#section-activities', '#section-certificates', '#section-contact'];
+
+                        if (specialSoundSections.includes(targetId)) {
+                            playSound(sfx.switch);
+                        } else {
+                            playSound(sfx.click);
+                        }
                     });
                 });
                 
