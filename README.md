@@ -1,4 +1,4 @@
-# Bas [616] // Digital Synthesis Portfolio
+# Digital Synthesis Portfolio
 
 **[ VIEW LIVE PORTFOLIO ↗](https://bas616.github.io/Digital-Synthesis-Portfolio/)**
 
