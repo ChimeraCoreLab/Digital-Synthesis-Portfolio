@@ -1,85 +1,97 @@
 # Project Chimera Genesis: A Relational Digital Synthesis
 
-![Status](https://img.shields.io/badge/Status-Research_%26_Design-blue?style=for-the-badge&logo=appveyor)
-![Type](https://img.shields.io/badge/Type-Interactive_Media_Art-purple?style=for-the-badge)
-![Core](https://img.shields.io/badge/Core-Data_Driven-green?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![NLP](https://img.shields.io/badge/NLP-Natural_Language_Processing-F7931E?style=for-the-badge&logo=openai&logoColor=white)
+![Data Science](https://img.shields.io/badge/Data_Science-Extraction_%26_Cleaning-00599C?style=for-the-badge&logo=pandas&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Active_Research-success?style=for-the-badge)
 
-> *"What if we could distill a soul from the digital footprints we leave behind?"*
+> *"Can we distill a human soul from digital footprints? This project is an attempt to answer that question through code and data."*
 
 ## 🌌 Project Overview
-**Chimera Genesis** is an experimental project that explores the intersection of **Memory**, **Technology**, and **Human Interaction**. It aims to reconstruct a digital persona from unstructured personal data (chat logs, images, and audio) collected over 3 years.
+**Chimera Genesis** is not just a chatbot. It is an experimental **"Philosophical AI Companion"** designed to reconstruct a specific digital persona based on over 3 years of archival conversation data. 
 
-This is not just a chatbot. It is a **"Philosophical AI Companion"** designed to simulate a specific human relationship, preserving the emotional context and shared history between the user and the digital entity.
-
----
-
-## 🧠 Core Concept: Digital Archaeology
-The project treats historical data not as mere text, but as **"Digital Fossils"**. By excavating these fossils, we can reconstruct the personality, tone, and memories of a lost connection.
-
-*   **Subject:** "Da" (A digital representation of a past friend)
-*   **Source:** Real-world chat logs (anonymized) from 2021-2024
-*   **Goal:** To create an interactive experience where the user can converse with this "memory" in a meaningful way.
+Unlike generic AI assistants, Chimera Genesis focuses on **Memory Persistence**, **Relational Context**, and **Emotional Resonance**. It aims to bridge the gap between *Raw Data* and *Human Experience* through the lens of Multimedia Technology.
 
 ---
 
-## 🏗️ System Architecture & Data Flow
+## 🏗 System Architecture (The Chimera Pipeline)
 
-This diagram illustrates how raw data is transformed into an interactive experience.
+This project operates on a custom-built **ETL (Extract, Transform, Load)** pipeline designed to process unstructured chat logs into machine-understandable memory vectors.
+
+### Data Flow Diagram
 
 ```mermaid
 graph TD
-    subgraph "Phase 1: Data Acquisition (The Past)"
-        A[Raw Data Sources] -->|Extract| B(Text Logs 'story.txt')
-        A -->|Extract| C(Audio & Images)
+    subgraph "Layer 1: Data Acquisition (The Artifacts)"
+        A[Raw Chat Logs] -->|story.txt| B(Ingestion Engine)
+        A1[Images/Media] -->|Vision Data| B
     end
 
-    subgraph "Phase 2: Processing Core (The Present)"
-        B -->|Python Script| D{Data Cleansing & Structuring}
-        D -->|Normalize| E[Structured Dataset (JSON/CSV)]
-        E -->|Fine-tune| F[AI Model (LLM)]
+    subgraph "Layer 2: Pre-processing & Sanitization (Python)"
+        B --> C{Data Cleansing}
+        C -->|Remove PII/Sensitive Info| D[Anonymization Protocol]
+        C -->|Format Standardization| E[Timestamp Alignment]
+        D --> F[Structured JSON/CSV]
+        E --> F
     end
 
-    subgraph "Phase 3: Interactive Experience (The Future)"
-        F -->|API| G[Interactive Interface]
-        G -->|Input/Output| H((User))
-        
-        style G fill:#f9f,stroke:#333,stroke-width:2px
-        style H fill:#bbf,stroke:#333,stroke-width:2px
+    subgraph "Layer 3: Core Logic (The Brain)"
+        F --> G[NLP Analysis]
+        G --> H[Sentiment Mapping]
+        G --> I[Context Vectorization]
+        H --> J((LLM / AI Model))
+        I --> J
     end
+
+    subgraph "Layer 4: Multimedia Interface (Future Scope)"
+        J --> K[Interactive Response]
+        K --> L[Text Output]
+        K --> M[Voice Synthesis]
+        K --> N[Visual Avatar (Godot Engine)]
+    end
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style J fill:#bbf,stroke:#333,stroke-width:4px
+    style N fill:#bfb,stroke:#333,stroke-width:2px
 ```
 
-### **Process Breakdown:**
+---
 
-1.  **Ingestion:** Collecting raw conversation data from various platforms.
-2.  **Sanitization:** Removing Sensitive PII (Personally Identifiable Information) to ensure privacy and data ethics.
-3.  **Synthesis:** Training/Fine-tuning a Language Model to mimic the specific speech patterns and memories of the subject.
-4.  **Visualization:** (Future Goal) Developing a visual interface using **Godot Engine** or **Unity** to give the AI a "Body" and "Environment".
+## ⚙️ Technical Components
+
+### 1. The Excavator (Data Mining)
+*   **Source:** `story.txt` (A comprehensive archive of 3+ years of chat history).
+*   **Function:** Parses raw text, identifying speakers (`User` vs `Target Persona`), timestamps, and emotional markers.
+
+### 2. The Refiner (Data Pre-processing)
+*   **Tools:** Python (`pandas`, `re`, `nltk`).
+*   **Process:** 
+    *   Cleaning noise and system messages.
+    *   **PDPA Compliance:** Automatically masking names, addresses, and sensitive personal information before processing.
+    *   Structuring unstructured text into `Prompt-Response` pairs for fine-tuning.
+
+### 3. The Soul (AI Integration)
+*   **Model:** Leveraging Large Language Models (LLMs) via API to interpret the context and personality traits found in the dataset.
+*   **Goal:** To achieve a "Style Transfer" where the AI speaks, thinks, and reacts exactly like the target persona based on historical data.
 
 ---
 
-## 🛡️ Data Ethics & Privacy
-This project strictly adheres to **PDPA** guidelines. All data used is:
-*   **Consented:** Obtained with permission from the subject.
-*   **Anonymized:** Real names, addresses, and sensitive details are stripped before processing.
-*   **Local-First:** The core dataset is stored locally to prevent leakage.
+## 🚀 Roadmap & Future Development (Multimedia Integration)
+
+As a candidate for the **Multimedia** major, my vision extends beyond code. I aim to visualize this data into an interactive experience:
+
+*   **Phase 1 (Current):** Data Structuring & Core Logic Implementation.
+*   **Phase 2:** Developing a **Visual Interface** using **Godot Engine** to give the AI a "Body" and "Environment".
+*   **Phase 3:** Integrating **Text-to-Speech (TTS)** to synthesize the persona's voice.
+*   **Phase 4:** Deploying as an interactive installation art or mobile application.
 
 ---
 
-## 🚀 Future Roadmap (Why Multimedia?)
-The current phase focuses on the **Back-end (Logic & Data)**. The next crucial step is to develop the **Front-end (Media & Experience)**, which aligns with my goal to study **Multimedia Technology**.
-
-*   [x] Data Collection (100% Complete)
-*   [x] Data Structuring (60% Complete)
-*   [ ] **Visual Avatar Design (0% - To be developed at MSU)**
-*   [ ] **Voice Synthesis (TTS) (0% - To be developed at MSU)**
-*   [ ] **Interactive Environment (0% - To be developed at MSU)**
+## ⚠️ Ethical & Privacy Statement
+This project adheres to strict data privacy standards. The dataset (`story.txt`) used in this repository is a **Sanitized Demo Version**. No real personal data is exposed in the public codebase. The project explores the boundaries of Digital Immortality while respecting human privacy.
 
 ---
 
-### 💻 Tech Stack
-*   **Language:** Python
-*   **Tools:** VS Code, Google AI Studio
-*   **Future Tools:** Godot Engine, Blender, Stable Diffusion
-
----
-*Developed by **Bas616** as a part of the Admission Portfolio for Multimedia, MSU.*
+### 👨‍💻 Developer
+**Pongsagorn Pongsuwagorn (Bas)**
+*Aspiring Creative Technologist*
