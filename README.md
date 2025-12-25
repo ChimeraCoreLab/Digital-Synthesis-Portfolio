@@ -1,6 +1,6 @@
 # Digital Synthesis Portfolio
 
-**[ VIEW LIVE PORTFOLIO ↗](https://bas616.github.io/Digital-Synthesis-Portfolio/)**
+**[ VIEW LIVE PORTFOLIO ↗](https://chimeracorelab.github.io/Digital-Synthesis-Portfolio/)**
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/Bas616/Digital-Synthesis-Portfolio?style=for-the-badge&color=7df9ff&logo=github&logoColor=black)](https://github.com/Bas616/Digital-Synthesis-Portfolio/commits/main)
 [![Languages](https://img.shields.io/github/languages/top/Bas616/Digital-Synthesis-Portfolio?style=for-the-badge&color=c77dff)](https://github.com/Bas616/Digital-Synthesis-Portfolio)
