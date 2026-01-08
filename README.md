@@ -17,5 +17,3 @@ This project is a self-contained **vanilla web application**, built with a focus
 * Languages: HTML5, CSS3, JavaScript
 * Fonts: IBM Plex Mono, Noto Sans Thai, Onryou, IPAM
 * Hosting: GitHub Pages
-# Digital-Synthesis-Portfolio
-# Digital-Synthesis-Portfolio
