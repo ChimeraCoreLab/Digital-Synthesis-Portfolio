@@ -1,7 +1,5 @@
 # ChimeraCore // Digital Synthesis Portfolio
 
-**[ VIEW LIVE PORTFOLIO ↗](https://chimeracorelab.github.io/Digital-Synthesis-Portfolio/)**
-
 ## I. Core Directive: A Living Manifesto
 This repository hosts more than just a personal website; it contains a **living digital portfolio**... It is the **ChimeraCore Manifesto**—a public-facing node of `Project Chimera Genesis`.
 
